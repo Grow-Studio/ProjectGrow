@@ -22,11 +22,6 @@
         <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">Project Grow</div>
       </div>
-      <div>
-        After you have played the game, please leave feedback here:
-        <a href="https://forms.gle/kY54LVFDU7y9Yo2cA">Feedback Survey</a>
-        <div>Thank you for playing.</div>
-      </div>
     </div>
     <script>
       var container = document.querySelector("#unity-container");
@@ -63,9 +58,9 @@
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/WebGL.loader.js";
       var config = {
-        dataUrl: buildUrl + "/WebGL.data.br",
-        frameworkUrl: buildUrl + "/WebGL.framework.js.br",
-        codeUrl: buildUrl + "/WebGL.wasm.br",
+        dataUrl: buildUrl + "/WebGL.data",
+        frameworkUrl: buildUrl + "/WebGL.framework.js",
+        codeUrl: buildUrl + "/WebGL.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Project Grow",
         productName: "Project Grow",
