@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | Project Grow</title>
+    <title>Unity WebGL Player | Project_Grow</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=1024 height=576></canvas>
+      <canvas id="unity-canvas" width=960 height=600></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -20,10 +20,7 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Project Grow</div>
-      </div>
-      <div>
-        Thank you for playing, please leave feedback here: <a href="https://forms.gle/EErhdyDhSTtV55HKA">Feedback Survey</a>
+        <div id="unity-build-title">Project_Grow</div>
       </div>
     </div>
     <script>
@@ -65,8 +62,8 @@
         frameworkUrl: buildUrl + "/WebGL.framework.js",
         codeUrl: buildUrl + "/WebGL.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "Project Grow",
-        productName: "Project Grow",
+        companyName: "DefaultCompany",
+        productName: "Project_Grow",
         productVersion: "0.1",
         showBanner: unityShowBanner,
       };
@@ -85,8 +82,8 @@
         config.devicePixelRatio = 1;
         unityShowBanner('WebGL builds are not supported on mobile devices.');
       } else {
-        canvas.style.width = "1024px";
-        canvas.style.height = "576px";
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
       }
       loadingBar.style.display = "block";
 
@@ -96,6 +93,7 @@
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
+          this.unityInstance = unityInstance;
           loadingBar.style.display = "none";
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
@@ -105,6 +103,30 @@
         });
       };
       document.body.appendChild(script);
+    </script>
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js'
+
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyD5V3ttm_48OSfxCQb2B9E3dV6nOmp4zX4",
+        authDomain: "project-grow-6b21e.firebaseapp.com",
+        databaseURL: "https://project-grow-6b21e-default-rtdb.firebaseio.com",
+        projectId: "project-grow-6b21e",
+        storageBucket: "project-grow-6b21e.appspot.com",
+        messagingSenderId: "153540391606",
+        appId: "1:153540391606:web:16cf701856a852f4d42c17",
+        measurementId: "G-R3WBRTGF85"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
     </script>
   </body>
 </html>
